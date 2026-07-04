@@ -1,91 +1,93 @@
 # Smart Campus Complaint and Management System
 
-This is a Laravel + PHP + MySQL semester project for managing campus complaints.
+## Project Overview
 
-## Technology Used
+Smart Campus Complaint and Management System is a web-based application developed to manage campus complaints in an organized and efficient way. The system allows students to submit complaints related to campus issues such as internet problems, classroom issues, electricity faults, furniture problems, lab issues, and other maintenance-related problems.
 
-- Laravel Framework
-- PHP
-- MySQL
+The system provides separate panels for Student, Admin, and Staff. Students can submit complaints and track their status. Admin can manage complaints, assign staff, update complaint status, and manage users. Staff can view assigned complaints, update progress, and add remarks.
+
+## Technologies Used
+
 - HTML
 - CSS
 - JavaScript
+- PHP
+- Laravel
+- MySQL
+- XAMPP
+- Composer
 
 ## Main Features
 
-- Student registration and login
-- Role-based login for Student, Admin, and Staff
-- Student can submit complaints
-- Student can view real complaint status from database
-- Admin can view all complaints
-- Admin can assign complaints to staff
-- Admin can update complaint status
-- Admin can add staff members
-- Staff can view assigned complaints
-- Staff can update complaint progress and remarks
-- Image upload option removed
-- Professional blue/navy UI with faded hover effect
+### Student Panel
 
-## Demo Accounts
+- Student registration
+- Student login
+- Submit complaint
+- View complaint status
+- Track complaint progress
 
-### Admin
-Email: admin@smartcampus.com  
-Password: admin123  
-Role: Admin
+### Admin Panel
 
-### Student
-Email: student@smartcampus.com  
-Password: student123  
-Role: Student
+- Admin login
+- View dashboard statistics
+- View all complaints
+- Assign complaints to staff
+- Update complaint status
+- Manage users
+- Manage staff members
 
-### Staff
-Email: staff@smartcampus.com  
-Password: staff123  
-Role: Staff
+### Staff Panel
 
-## How to Run
+- Staff login
+- View assigned complaints
+- Update complaint status
+- Add remarks on complaints
 
-### Step 1: Put Project in XAMPP
+## User Roles
 
-Extract this project and place the folder here:
+The system has three main roles:
 
-```text
-C:\xampp\htdocs\SmartCampus_Laravel
+1. Student
+2. Admin
+3. Staff
+
+Each role has its own dashboard and permissions.
+
+## Project Modules
+
+- Authentication Module
+- Student Complaint Module
+- Admin Management Module
+- Staff Assignment Module
+- Complaint Status Tracking Module
+- Database Management Module
+
+## Database
+
+The project uses MySQL database.
+
+Database name:
+
+```sql
+smart_campus_db
 ```
 
-### Step 2: Open Terminal in Project Folder
+Main tables:
 
-```bash
-cd C:\xampp\htdocs\SmartCampus_Laravel
-```
+- users
+- complaints
 
-### Step 3: Install Laravel Dependencies
+## How to Run the Project
 
-Composer is required for Laravel.
+### Step 1: Start XAMPP
 
-```bash
-composer install
-```
+Start:
 
-### Step 4: Create Environment File
+- Apache
+- MySQL
 
-```bash
-copy .env.example .env
-```
-
-For Git Bash/Linux/Mac:
-
-```bash
-cp .env.example .env
-```
-
-### Step 5: Generate App Key
-
-```bash
-php artisan key:generate
-```
-
-### Step 6: Create Database
+### Step 2: Create Database
 
 Open phpMyAdmin:
 
@@ -93,25 +95,56 @@ Open phpMyAdmin:
 http://localhost/phpmyadmin
 ```
 
-Create database:
+Create a database:
 
 ```text
 smart_campus_db
 ```
 
-### Step 7: Run Migrations and Seeder
+### Step 3: Import SQL File
+
+Import the SQL file from the project database folder.
+
+### Step 4: Install Dependencies
+
+Open project folder in VS Code terminal and run:
 
 ```bash
-php artisan migrate --seed
+composer install
 ```
 
-Alternative: You can import this SQL file manually:
+### Step 5: Create Environment File
 
-```text
-database/sql/smart_campus_db.sql
+```bash
+copy .env.example .env
 ```
 
-### Step 8: Start Laravel Server
+### Step 6: Generate Application Key
+
+```bash
+php artisan key:generate
+```
+
+### Step 7: Configure Database
+
+Open `.env` file and set:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=smart_campus_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### Step 8: Clear Cache
+
+```bash
+php artisan optimize:clear
+```
+
+### Step 9: Run Project
 
 ```bash
 php artisan serve
@@ -123,9 +156,73 @@ Open in browser:
 http://127.0.0.1:8000
 ```
 
-## Notes
+## Demo Accounts
 
-- Do not open Blade files directly in browser.
-- Always run this project through Laravel server using `php artisan serve`.
-- Make sure Apache/MySQL are running in XAMPP.
-- If `composer` is not recognized, install Composer first.
+### Admin
+
+```text
+Email: admin@smartcampus.com
+Password: admin123
+Role: Admin
+```
+
+### Staff
+
+```text
+Email: staff@smartcampus.com
+Password: staff123
+Role: Staff
+```
+
+### Student
+
+A student can register from the registration page and then login using the selected student role.
+
+## Project Workflow
+
+1. Student registers and logs in.
+2. Student submits a campus complaint.
+3. Complaint is saved in the database.
+4. Admin views the complaint.
+5. Admin assigns the complaint to staff.
+6. Staff views assigned complaint.
+7. Staff updates status and adds remarks.
+8. Student tracks the updated complaint status.
+
+## Quality Attributes
+
+### Reliability
+
+The system stores complaint data properly in the database and allows users to track complaint status.
+
+### Usability
+
+The interface is simple and easy to use for students, admin, and staff.
+
+### Maintainability
+
+The project is developed using Laravel structure, which makes the code organized and easy to maintain.
+
+### Efficiency
+
+The system allows quick complaint submission, status update, and data retrieval.
+
+### Security
+
+The system uses role-based login so that each user can access only their own panel.
+
+## Future Enhancements
+
+- Email notifications
+- Complaint priority alerts
+- Complaint reports with charts
+- Search and advanced filters
+- User profile management
+- Feedback system after complaint resolution
+
+## Author
+
+Abrar Hussain
+
+Computer Science Student  
+COMSATS University Islamabad, Abbottabad Campus
